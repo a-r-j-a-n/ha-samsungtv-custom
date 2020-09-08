@@ -39,6 +39,10 @@ class Application:
         """ Get the state of the app."""
         try:
             response = requests.get(APP_URL_FORMAT.format(self._ip, APPS[app]), timeout=0.2)
+#             toon_data = await hass.async_add_executor_job(ToonData, hass, entry, toon)
+#             result = await hass.async_add_executor_job(hub.update)
+
+
             return response.content.decode('utf-8')
         except:
             return """{"id":"","name":"","running":false,"version":"","visible":false}"""
