@@ -38,7 +38,7 @@ class Application:
     def state(self, app):
         """ Get the state of the app."""
         try:
-            response = requests.get(APP_URL_FORMAT.format(self._ip, APPS[app]), timeout=0.2)
+            response = await hass.async_add_executor_job(requests.get, APP_URL_FORMAT.format(self._ip, APPS[app]), timeout=0.2)
 #             toon_data = await hass.async_add_executor_job(ToonData, hass, entry, toon)
 #             result = await hass.async_add_executor_job(hub.update)
 
